@@ -1,0 +1,9 @@
+{
+    "Transaction": {
+        "TransactionId": "a523e0d4-01e1-4c8d-8dd9-54b269c315b7",
+        "TransactionDate": "2024-01-04T10:18:38.9668839-06:00",
+        "TransactionComment": "Submit lookup successful. ",
+        "TransactionSuccessFlag": true,
+        "TransactionErrors": []
+    }
+}
