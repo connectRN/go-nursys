@@ -1,0 +1,23 @@
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Go workspace file
+go.work
+
+# IDE folders
+.vscode/
+.idea/
+
+# Log files
+*.log
+
+# Tmp
+/tmp/
+
+# vim swp files
+*.swp
+*.swo

@@ -1,0 +1,37 @@
+# See https://golangci-lint.run/usage/configuration/
+
+linters:
+  enable:
+    - revive # Runs "golint" (the official go linter). Might as well run this one too.
+    - forbidigo # Forbids use of some idenifiers, by default fmt.Print*
+
+linters-settings:
+  revive:
+    rules:
+      - name: error-strings
+        disabled: true
+
+issues:
+  # Excluding configuration per-path, per-linter, per-text and per-source
+  exclude-rules:
+    # Exclude some linters from running on tests files.
+    - path: _test\.go
+      linters:
+        - gocyclo
+        - errcheck
+        - dupl
+        - gosec
+        - revive
+
+  # The list of ids of default excludes to include or disable. By default, it's empty.
+  include:
+    - EXC0012 # disable excluding of issues about comments from golint
+
+  # Maximum issues count per one linter. Set to 0 to disable. Default is 50.
+  max-issues-per-linter: 0
+
+  # Maximum count of issues with the same text. Set to 0 to disable. Default is 3.
+  max-same-issues: 0
+
+run:
+  timeout: 5m
