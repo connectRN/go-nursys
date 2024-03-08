@@ -32,7 +32,7 @@ type ManageNurseListRequest struct {
 	JurisdictionAbbreviation     string `json:"JurisdictionAbbreviation,omitempty"`     // Optional 4 State board of nursing. Please see section 3.2.2 for matching rules.
 	LicenseNumber                string `json:"LicenseNumber,omitempty"`                // Optional 15 License number. Please see section 3.2.2 for matching rules.
 	LicenseType                  string `json:"LicenseType,omitempty"`                  // Optional 4 License type. Please see section 3.2.2 for matching rules.
-	NcsbnID                      string `json:"NcsbnId,omitempty"`                      // Optional 10 NCSBN ID is the public, globally unique identifier for all nurses from participating boards of nursing. Please see section 3.2.2 for matching rules
+	NcsbnID                      string `json:"NcsbnId,omitempty"`                      // Optional 10 NCSBN ID is the public, globally unique identifier for all nurses from participating boards of nursing. Please see section 3.2.2 for matching rules.
 	Email                        string `json:"Email,omitempty"`                        // Optional 50 E-mail address.
 	Address1                     string `json:"Address1"`                               // Required 50 Address line 1.
 	Address2                     string `json:"Address2,omitempty"`                     // Optional 50 Address line 2.
