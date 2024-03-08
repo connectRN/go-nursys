@@ -32,7 +32,7 @@ type ManageNurseListRequest struct {
 	JurisdictionAbbreviation     string `json:"JurisdictionAbbreviation,omitempty"`     // Optional 4 State board of nursing. Please see section 3.2.2 for matching rules.
 	LicenseNumber                string `json:"LicenseNumber,omitempty"`                // Optional 15 License number. Please see section 3.2.2 for matching rules.
 	LicenseType                  string `json:"LicenseType,omitempty"`                  // Optional 4 License type. Please see section 3.2.2 for matching rules.
-	NcsbnID                      uint64 `json:"NcsbnId,omitempty"`                      // Optional 10 NCSBN ID is the public, globally unique identifier for all nurses from participating boards of nursing. Please see section 3.2.2 for matching rules.
+	NcsbnID                      string `json:"NcsbnId,omitempty"`                      // Optional 10 NCSBN ID is the public, globally unique identifier for all nurses from participating boards of nursing. Please see section 3.2.2 for matching rules.
 	Email                        string `json:"Email,omitempty"`                        // Optional 50 E-mail address.
 	Address1                     string `json:"Address1"`                               // Required 50 Address line 1.
 	Address2                     string `json:"Address2,omitempty"`                     // Optional 50 Address line 2.
@@ -40,7 +40,7 @@ type ManageNurseListRequest struct {
 	State                        string `json:"State"`                                  // Required 2 State.
 	Zip                          string `json:"Zip"`                                    // Required 10 Zip code.
 	LastFourSSN                  string `json:"LastFourSSN"`                            // Required 4 Last four digits of social security number.
-	BirthYear                    uint16 `json:"BirthYear"`                              // Required 4 Birth year.
+	BirthYear                    string `json:"BirthYear"`                              // Required 4 Birth year.
 	HospitalPracticeSetting      string `json:"HospitalPracticeSetting,omitempty"`      // Required 2 Hospital practice setting.
 	HospitalPracticeSettingOther string `json:"HospitalPracticeSettingOther,omitempty"` // Optional 50 Hospital practice setting (other).
 	NotificationsEnabled         string `json:"NotificationsEnabled"`                   // Required 1 License and state licensure action notifications enabled.
@@ -72,7 +72,7 @@ type ManageNurseListRetrieveResponseMessage struct {
 
 // MangeNurseListResponse is an individual response to the Manage Nurse List thing.
 type MangeNurseListResponse struct {
-	SuccessFlag            bool                     `json:"SuccessFlag"`            // True or False indicator if the Nurse was successfully added/updated/removed.
-	Errors                 []TransactionError       `json:"Errors"`                 // A collection of validation errors that may have occurred during the processing of the Nurse.
-	ManageNurseListRequest []ManageNurseListRequest `json:"ManageNurseListRequest"` // Nurse sent via request.
+	SuccessFlag            bool                   `json:"SuccessFlag"`            // True or False indicator if the Nurse was successfully added/updated/removed.
+	Errors                 []TransactionError     `json:"Errors"`                 // A collection of validation errors that may have occurred during the processing of the Nurse.
+	ManageNurseListRequest ManageNurseListRequest `json:"ManageNurseListRequest"` // Nurse sent via request.
 }

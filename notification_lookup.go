@@ -60,7 +60,7 @@ type NotificationLookupRetrieveResponseMessage struct {
 
 // NotificationLookupResponse is an individual response to the Notification Lookup GET method.
 type NotificationLookupResponse struct {
-	NcsbnID                     uint64    `json:"NcsbnId,omitempty"`           // Optional 10 NCSBN ID is the public, globally unique identifier for all nurses from participating boards of nursing.
+	NcsbnID                     string    `json:"NcsbnId,omitempty"`           // Optional 10 NCSBN ID is the public, globally unique identifier for all nurses from participating boards of nursing.
 	JurisdictionAbbreviation    string    `json:"JurisdictionAbbreviation"`    // Required 4 State board of nursing. See appendix for a list of valid values.
 	Jurisdiction                string    `json:"Jurisdiction"`                // Required 50 State board of nursing. See appendix for a list of valid values.
 	LicenseNumber               string    `json:"LicenseNumber"`               // Required 15 License number.
