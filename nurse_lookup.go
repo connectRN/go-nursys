@@ -33,7 +33,7 @@ type NurseLookupRequest struct {
 	JurisdictionAbbreviation string `json:"JurisdictionAbbreviation,omitempty"` // Optional 4 State board of nursing. Please see the appendix for a list of valid values.
 	LicenseNumber            string `json:"LicenseNumber,omitempty"`            // Optional 15 License number.
 	LicenseType              string `json:"LicenseType,omitempty"`              // Optional 4 License type. Please see the appendix for a list of valid values.
-	NcsbnID                  uint64 `json:"NcsbnId,omitempty"`                  // Optional 10 NCSBN ID is the public, globally unique identifier for all nurses from participating boards of nursing.
+	NcsbnID                  string `json:"NcsbnId,omitempty"`                  // Optional 10 NCSBN ID is the public, globally unique identifier for all nurses from participating boards of nursing.
 	RecordID                 string `json:"RecordId,omitempty"`                 // Optional 50 Client-provided id
 }
 
@@ -63,7 +63,7 @@ type NurseLookupResponse struct {
 	NurseLookupRequest                    NurseLookupRequest        `json:"NurseLookupRequest"`                              // Required Nurse sent via request.
 	FirstName                             string                    `json:"FirstName"`                                       // Required 50 Nurse first name
 	LastName                              string                    `json:"LastName"`                                        // Required 50 Nurse last name
-	NcsbnID                               uint64                    `json:"NcsbnId,omitempty"`                               // Optional 10 NCSBN ID is the public, globally unique identifier for all nurses from participating boards of nursing.
+	NcsbnID                               string                    `json:"NcsbnId,omitempty"`                               // Optional 10 NCSBN ID is the public, globally unique identifier for all nurses from participating boards of nursing.
 	Messages                              []Message                 `json:"Messages,omitempty"`                              // Optional A collection of notification messages regarding the nurse. It is vital to review these messages as they may contain important information.
 	NurseLookupLicenses                   []NurseLookupLicense      `json:"NurseLookupLicenses,omitempty"`                   // Optional A collection of licenses.
 	NurseLookupRNAuthorizationsToPractice []AuthorizationToPractice `json:"NurseLookupRNAuthorizationsToPractice,omitempty"` // Optional A collection of RN authorization to practice information for each state.
