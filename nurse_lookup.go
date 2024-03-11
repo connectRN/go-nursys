@@ -85,8 +85,8 @@ type NurseLookupLicense struct {
 	LicenseNumber                string                        `json:"LicenseNumber"`                //  Required 15 License number.
 	Active                       string                        `json:"Active"`                       //  Optional 50 Active status for the license.
 	LicenseStatus                string                        `json:"LicenseStatus"`                //  Optional 500 Current status of the license.
-	LicenseOriginalDate          time.Time                     `json:"LicenseOriginalDate"`          //  Optional Original issue date for the license.
-	LicenseExpirationDate        time.Time                     `json:"LicenseExpirationDate"`        //  Optional Expiration date for the license.
+	LicenseOriginalDate          string                        `json:"LicenseOriginalDate"`          //  Optional Original issue date for the license.
+	LicenseExpirationDate        string                        `json:"LicenseExpirationDate"`        //  Optional Expiration date for the license.
 	CompactStatus                string                        `json:"CompactStatus"`                //  Optional 50 Nurse Licensure Compact (NLC) status of the license. Please visit nursys.com for more information about the NLC.
 	Messages                     []Message                     `json:"Messages"`                     //  Optional A collection of notification messages regarding the license. It is vital to review these messages as they may contain important license information.
 	NurseLookupDisciplines       []NurseLookupDiscipline       `json:"NurseLookupDisciplines"`       //  Optional Collection of discipline information associated with this license.
