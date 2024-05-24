@@ -114,14 +114,14 @@ type NurseLookupBasisForAction struct {
 
 // NurseLookupAction is an element of NurseLookupDiscipline or NurseLookupRevisionReport
 type NurseLookupAction struct {
-	ActionDate             time.Time `json:"ActionDate"`             // Required Date of the discipline/final order action
-	ActionCode             string    `json:"ActionCode"`             // Required 5 NPDB code for this discipline/final order action.
-	ActionDescription      string    `json:"ActionDescription"`      // Required 150 NPDB description for this discipline/final order action.
-	ActionStayedFlag       bool      `json:"ActionStayedFlag"`       // Required Flag to indicate if this action has been stayed by the state board of nursing.
-	StartDate              time.Time `json:"StartDate"`              // Optional Start date for this discipline/final order action.
-	EndDate                time.Time `json:"EndDate"`                // Optional End date for this discipline/final order action.
-	Duration               string    `json:"Duration"`               // Optional 50 Duration for this discipline/final order action (Indefinite/Unspecified, Permanent, or Specified)
-	AutomaticReinstatement string    `json:"AutomaticReinstatement"` // Optional 50 Indicates if the license is automatically reinstated upon the conclusion of the discipline/final order (No, Yes, or Yes With Conditions)
+	ActionDate             Time   `json:"ActionDate"`             // Required Date of the discipline/final order action
+	ActionCode             string `json:"ActionCode"`             // Required 5 NPDB code for this discipline/final order action.
+	ActionDescription      string `json:"ActionDescription"`      // Required 150 NPDB description for this discipline/final order action.
+	ActionStayedFlag       bool   `json:"ActionStayedFlag"`       // Required Flag to indicate if this action has been stayed by the state board of nursing.
+	StartDate              Time   `json:"StartDate"`              // Optional Start date for this discipline/final order action.
+	EndDate                Time   `json:"EndDate"`                // Optional End date for this discipline/final order action.
+	Duration               string `json:"Duration"`               // Optional 50 Duration for this discipline/final order action (Indefinite/Unspecified, Permanent, or Specified)
+	AutomaticReinstatement string `json:"AutomaticReinstatement"` // Optional 50 Indicates if the license is automatically reinstated upon the conclusion of the discipline/final order (No, Yes, or Yes With Conditions)
 }
 
 // NurseLookupDocument is an element of NurseLookupDiscipline or NurseLookupRevisionReport or NurseLookupNotification
@@ -142,17 +142,17 @@ type NurseLookupRevisionReport struct {
 type NurseLookupNotification struct {
 	JurisdictionAbbreviation string                `json:"JurisdictionAbbreviation"` //  Required 4 The state board of nursing that placed the member board notification on the license. See appendix for a list of valid values.
 	Jurisdiction             string                `json:"Jurisdiction"`             //  Required 50 The state board of nursing that placed the member board notification on the license. See appendix for a list of valid values.
-	NotificationDate         time.Time             `json:"NotificationDate"`         //  Required The date the member board notification was placed on the license.
+	NotificationDate         Time                  `json:"NotificationDate"`         //  Required The date the member board notification was placed on the license.
 	NotificationMessage      string                `json:"NotificationMessage"`      //  Required 5000 The message text for the member board notification.
 	NotificationDocuments    []NurseLookupDocument `json:"NotificationDocuments"`    //  Optional Collection of documents associated with this member board notification.
 }
 
 // NurseLookupAdvancedPractice is an element of NurseLookupLicense
 type NurseLookupAdvancedPractice struct {
-	FocusSpecialty               string    `json:"FocusSpecialty"`               // Required 50 Description of the advanced practice (APRN) focus or specialty
-	PrescriptionAuthority        string    `json:"PrescriptionAuthority"`        // Required 50 Indicates if this advanced practice (APRN) focus or specialty has prescription authority.
-	CertificationExpirationDate  time.Time `json:"CertificationExpirationDate"`  // Optional Expiration date for the advanced practice (APRN) certification associated with this focus or specialty.
-	FocusSpecialtyExpirationDate time.Time `json:"FocusSpecialtyExpirationDate"` // Optional Expiration date for this focus or specialty
+	FocusSpecialty               string `json:"FocusSpecialty"`               // Required 50 Description of the advanced practice (APRN) focus or specialty
+	PrescriptionAuthority        string `json:"PrescriptionAuthority"`        // Required 50 Indicates if this advanced practice (APRN) focus or specialty has prescription authority.
+	CertificationExpirationDate  Time   `json:"CertificationExpirationDate"`  // Optional Expiration date for the advanced practice (APRN) certification associated with this focus or specialty.
+	FocusSpecialtyExpirationDate Time   `json:"FocusSpecialtyExpirationDate"` // Optional Expiration date for this focus or specialty
 }
 
 // AuthorizationToPractice is an element of NurseLookupResponse

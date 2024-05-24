@@ -60,16 +60,16 @@ type NotificationLookupRetrieveResponseMessage struct {
 
 // NotificationLookupResponse is an individual response to the Notification Lookup GET method.
 type NotificationLookupResponse struct {
-	NcsbnID                     string    `json:"NcsbnId,omitempty"`           // Optional 10 NCSBN ID is the public, globally unique identifier for all nurses from participating boards of nursing.
-	JurisdictionAbbreviation    string    `json:"JurisdictionAbbreviation"`    // Required 4 State board of nursing. See appendix for a list of valid values.
-	Jurisdiction                string    `json:"Jurisdiction"`                // Required 50 State board of nursing. See appendix for a list of valid values.
-	LicenseNumber               string    `json:"LicenseNumber"`               // Required 15 License number.
-	LicenseType                 string    `json:"LicenseType"`                 // Required 4 License type. See appendix for a list of valid values.
-	FirstName                   string    `json:"FirstName"`                   // Required 50 Licensee first name.
-	LastName                    string    `json:"LastName"`                    // Required 50 Licensee last name.
-	RecordId                    string    `json:"RecordId"`                    // Optional 50 Client-provided identifier.
-	NotificationDate            time.Time `json:"NotificationDate"`            // Required Date the status change was reported.
-	LicenseStatusChange         string    `json:"LicenseStatusChange"`         // Optional 500 License status changes affecting the enrolled license.
-	DisciplineStatusChange      string    `json:"DisciplineStatusChange"`      // Optional 500 Discipline/final orders status changes affecting the enrolled license.
-	DisciplineStatusChangeOther string    `json:"DisciplineStatusChangeOther"` // Optional 500 Discipline/final orders status changes affecting licenses the nurse may hold that may not be enrolled.
+	NcsbnID                     string `json:"NcsbnId,omitempty"`           // Optional 10 NCSBN ID is the public, globally unique identifier for all nurses from participating boards of nursing.
+	JurisdictionAbbreviation    string `json:"JurisdictionAbbreviation"`    // Required 4 State board of nursing. See appendix for a list of valid values.
+	Jurisdiction                string `json:"Jurisdiction"`                // Required 50 State board of nursing. See appendix for a list of valid values.
+	LicenseNumber               string `json:"LicenseNumber"`               // Required 15 License number.
+	LicenseType                 string `json:"LicenseType"`                 // Required 4 License type. See appendix for a list of valid values.
+	FirstName                   string `json:"FirstName"`                   // Required 50 Licensee first name.
+	LastName                    string `json:"LastName"`                    // Required 50 Licensee last name.
+	RecordId                    string `json:"RecordId"`                    // Optional 50 Client-provided identifier.
+	NotificationDate            Time   `json:"NotificationDate"`            // Required Date the status change was reported.
+	LicenseStatusChange         string `json:"LicenseStatusChange"`         // Optional 500 License status changes affecting the enrolled license.
+	DisciplineStatusChange      string `json:"DisciplineStatusChange"`      // Optional 500 Discipline/final orders status changes affecting the enrolled license.
+	DisciplineStatusChangeOther string `json:"DisciplineStatusChangeOther"` // Optional 500 Discipline/final orders status changes affecting licenses the nurse may hold that may not be enrolled.
 }
