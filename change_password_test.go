@@ -43,7 +43,7 @@ func Test_ChangePassword(t *testing.T) {
 	require.NoError(t, err)
 
 	assert.Equal("a523e0d4-01e1-4c8d-8dd9-54b269c315b7", postResp.TransactionID)
-	assert.Equal(time.Date(2024, 1, 4, 10, 18, 38, 966883900, time.FixedZone("", -21600)), postResp.TransactionDate)
+	assert.Equal(time.Date(2024, 1, 4, 10, 18, 38, 966883900, time.FixedZone("", -21600)), time.Time(postResp.TransactionDate))
 	assert.Equal("Submit lookup successful. ", postResp.TransactionComment)
 	assert.Equal(true, postResp.TransactionSuccessFlag)
 	assert.Equal([]nursys.TransactionError{}, postResp.TransactionErrors)
@@ -77,7 +77,7 @@ func Test_ChangePassword_Failed(t *testing.T) {
 	require.NoError(t, err)
 
 	assert.Equal("xfaca386-x034-41x8-90xf-96xd23318348", postResp.TransactionID)
-	assert.Equal(time.Date(2021, 8, 31, 15, 47, 0, 265942100, time.FixedZone("", -18000)), postResp.TransactionDate)
+	assert.Equal(time.Date(2021, 8, 31, 15, 47, 0, 265942100, time.FixedZone("", -18000)), time.Time(postResp.TransactionDate))
 	assert.Equal("", postResp.TransactionComment)
 	assert.Equal(false, postResp.TransactionSuccessFlag)
 	assert.Equal([]nursys.TransactionError{
