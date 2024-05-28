@@ -3,7 +3,6 @@ package nursys
 import (
 	"context"
 	"net/url"
-	"time"
 )
 
 // NurseLookup is an asynchronous method for retrieving public license and discipline/final orders status
@@ -98,7 +97,7 @@ type NurseLookupLicense struct {
 type NurseLookupDiscipline struct {
 	JurisdictionAbbreviation          string                      `json:"JurisdictionAbbreviation"`          // Required 4 Abbreviation for the state board of nursing that took the discipline/final orders. See appendix for a list of valid values.
 	Jurisdiction                      string                      `json:"Jurisdiction"`                      // Required 50 Description for the state board of nursing that took the discipline/final orders. See appendix for a list of valid values.
-	DateActionWasTaken                time.Time                   `json:"DateActionWasTaken"`                // Required Date the discipline/final orders was taken.
+	DateActionWasTaken                Time                        `json:"DateActionWasTaken"`                // Required Date the discipline/final orders was taken.
 	AgainstPrivilegeToPracticeFlag    bool                        `json:"AgainstPrivilegeToPracticeFlag"`    // Required Flag to indicate if the discipline/final orders was taken against the license’s Privilege To Practice (PTP) as part of the Nurse Licensure Compact (NLC). Please visit nursys.com for more information about the NLC.
 	NurseLookupBasisForActions        []NurseLookupBasisForAction `json:"NurseLookupBasisForActions"`        // Optional Collection of NPDB basis for action codes and descriptions for this discipline/final order. Note: some state boards of nursing elect not to provide this information if board order documents are attached to the discipline/final order.
 	NurseLookupInitialActions         []NurseLookupAction         `json:"NurseLookupInitialActions"`         // Optional Collection of NPDB action codes and descriptions for this discipline/final order. Note: some state boards of nursing elect not to provide this information if board order documents are attached to the discipline/final order.
@@ -126,14 +125,14 @@ type NurseLookupAction struct {
 
 // NurseLookupDocument is an element of NurseLookupDiscipline or NurseLookupRevisionReport or NurseLookupNotification
 type NurseLookupDocument struct {
-	ActionDate   time.Time `json:"ActionDate"`   // Optional Date of the discipline/final order action associated with this board order document.
-	DocumentId   string    `json:"DocumentId"`   // Required 50 Unique identifier for this board order document. This identifier can be used to retrieve the document using the Retrieve Document HTTP GET method described in section 3.6.
-	DocumentName string    `json:"DocumentName"` // Required 50 Name of the board order document.
+	ActionDate   Time   `json:"ActionDate"`   // Optional Date of the discipline/final order action associated with this board order document.
+	DocumentId   string `json:"DocumentId"`   // Required 50 Unique identifier for this board order document. This identifier can be used to retrieve the document using the Retrieve Document HTTP GET method described in section 3.6.
+	DocumentName string `json:"DocumentName"` // Required 50 Name of the board order document.
 }
 
 // NurseLookupRevisionReport is an element of NurseLookupDiscipline
 type NurseLookupRevisionReport struct {
-	RevisionReportDate                 time.Time             `json:"RevisionReportDate"`                 // Optional Date of the discipline/final order revision actions.
+	RevisionReportDate                 Time                  `json:"RevisionReportDate"`                 // Optional Date of the discipline/final order revision actions.
 	NurseLookupRevisionActions         []NurseLookupAction   `json:"NurseLookupRevisionActions"`         // Optional Collection of NPDB action codes and descriptions for the revisions to this discipline/final order. Note: some state boards of nursing elect not to provide this information if board order documents are attached to the discipline/final order.
 	NurseLookupRevisionActionDocuments []NurseLookupDocument `json:"NurseLookupRevisionActionDocuments"` // Optional Collection of board order documents associated with these discipline/final order revision actions.
 }
