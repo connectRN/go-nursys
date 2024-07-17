@@ -65,4 +65,20 @@ func Test_UnmarshalJSON(t *testing.T) {
 		assert.NoError(t, err)
 		assert.Equal(t, time.Date(2021, 7, 8, 11, 34, 55, 0, time.FixedZone("", -7*60*60)), time.Time(t1.DateTime))
 	})
+
+	t.Run("Zulu time", func(t *testing.T) {
+		s := []byte(`{"date_time":"2024-07-16T20:45:59Z"}`)
+		var t1 testTime
+		err := json.Unmarshal(s, &t1)
+		assert.NoError(t, err)
+		assert.Equal(t, time.Date(2024, 7, 16, 20, 45, 59, 0, time.UTC), time.Time(t1.DateTime))
+	})
+
+	t.Run("null time", func(t *testing.T) {
+		s := []byte(`null`)
+		var t1 testTime
+		err := json.Unmarshal(s, &t1)
+		assert.NoError(t, err)
+		assert.Equal(t, time.Time{}, time.Time(t1.DateTime))
+	})
 }
