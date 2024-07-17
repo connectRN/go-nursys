@@ -2,6 +2,7 @@ package nursys
 
 import (
 	"errors"
+	"fmt"
 	"regexp"
 	"time"
 )
@@ -19,8 +20,12 @@ var timeRegexp = regexp.MustCompile(`"^\\d{4}-\\d{2}-\\d{2}T\\d{2}%3A\\d{2}%3A\\
 func (t *Time) UnmarshalJSON(data []byte) (err error) {
 	var tm time.Time
 	s := string(data)
+	if s == "null" {
+		*t = Time(time.Time{})
+		return nil
+	}
 	if data[0] != '"' || data[len(data)-1] != '"' {
-		return errors.New("invalid JSON string")
+		return errors.New(fmt.Sprintf("invalid JSON string %s", s))
 	}
 	s = s[1 : len(s)-1]
 	// Try RFC3339 first

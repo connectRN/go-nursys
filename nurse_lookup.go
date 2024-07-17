@@ -63,15 +63,10 @@ type NurseLookupResponse struct {
 	FirstName                             string                    `json:"FirstName"`                                       // Required 50 Nurse first name
 	LastName                              string                    `json:"LastName"`                                        // Required 50 Nurse last name
 	NcsbnID                               string                    `json:"NcsbnId,omitempty"`                               // Optional 10 NCSBN ID is the public, globally unique identifier for all nurses from participating boards of nursing.
-	Messages                              []Message                 `json:"Messages,omitempty"`                              // Optional A collection of notification messages regarding the nurse. It is vital to review these messages as they may contain important information.
+	Messages                              []string                  `json:"Messages,omitempty"`                              // Optional A collection of notification messages regarding the nurse. It is vital to review these messages as they may contain important information.
 	NurseLookupLicenses                   []NurseLookupLicense      `json:"NurseLookupLicenses,omitempty"`                   // Optional A collection of licenses.
 	NurseLookupRNAuthorizationsToPractice []AuthorizationToPractice `json:"NurseLookupRNAuthorizationsToPractice,omitempty"` // Optional A collection of RN authorization to practice information for each state.
 	NurseLookupPNAuthorizationsToPractice []AuthorizationToPractice `json:"NurseLookupPNAuthorizationsToPractice,omitempty"` // Optional A collection of PN authorization to practice information for each state.
-}
-
-// Message is a member of NurseLookupResponse or NurseLookupLicense
-type Message struct {
-	Message string `json:"Message"` // 5000 Required A notification message. It is vital to review this message as it may contain important information.
 }
 
 // NurseLookupLicense is an element of NurseLookupResponse
@@ -87,7 +82,7 @@ type NurseLookupLicense struct {
 	LicenseOriginalDate          string                        `json:"LicenseOriginalDate"`          //  Optional Original issue date for the license.
 	LicenseExpirationDate        string                        `json:"LicenseExpirationDate"`        //  Optional Expiration date for the license.
 	CompactStatus                string                        `json:"CompactStatus"`                //  Optional 50 Nurse Licensure Compact (NLC) status of the license. Please visit nursys.com for more information about the NLC.
-	Messages                     []Message                     `json:"Messages"`                     //  Optional A collection of notification messages regarding the license. It is vital to review these messages as they may contain important license information.
+	Messages                     []string                      `json:"Messages"`                     //  Optional A collection of notification messages regarding the license. It is vital to review these messages as they may contain important license information.
 	NurseLookupDisciplines       []NurseLookupDiscipline       `json:"NurseLookupDisciplines"`       //  Optional Collection of discipline information associated with this license.
 	NurseLookupNotifications     []NurseLookupNotification     `json:"NurseLookupNotifications"`     //  Optional Collection of member board notifications regarding this license.
 	NurseLookupAdvancedPractices []NurseLookupAdvancedPractice `json:"NurseLookupAdvancedPractices"` //  Optional Collection of focus, specialty, and related information for advanced practice (APRN) licenses.
