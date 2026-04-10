@@ -3,7 +3,6 @@ package nursys
 import (
 	"errors"
 	"fmt"
-	"regexp"
 	"time"
 )
 
@@ -14,8 +13,6 @@ func (t Time) MarshalJSON() ([]byte, error) {
 	return time.Time(t).MarshalJSON()
 }
 
-var timeRegexp = regexp.MustCompile(`"^\\d{4}-\\d{2}-\\d{2}T\\d{2}%3A\\d{2}%3A\\d{2}(?:%2E\\d+)?[A-Z]?(?:[+.-](?:08%3A\\d{2}|\\d{2}[A-Z]))?$"`)
-
 // UnmarshalJSON implements the json.Unmarshaler interface.
 func (t *Time) UnmarshalJSON(data []byte) (err error) {
 	var tm time.Time
@@ -25,7 +22,7 @@ func (t *Time) UnmarshalJSON(data []byte) (err error) {
 		return nil
 	}
 	if data[0] != '"' || data[len(data)-1] != '"' {
-		return errors.New(fmt.Sprintf("invalid JSON string %s", s))
+		return fmt.Errorf("invalid JSON string %s", s)
 	}
 	s = s[1 : len(s)-1]
 	// Try RFC3339 first

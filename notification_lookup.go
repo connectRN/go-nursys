@@ -67,7 +67,7 @@ type NotificationLookupResponse struct {
 	LicenseType                 string `json:"LicenseType"`                 // Required 4 License type. See appendix for a list of valid values.
 	FirstName                   string `json:"FirstName"`                   // Required 50 Licensee first name.
 	LastName                    string `json:"LastName"`                    // Required 50 Licensee last name.
-	RecordId                    string `json:"RecordId"`                    // Optional 50 Client-provided identifier.
+	RecordID                    string `json:"RecordId"`                    // Optional 50 Client-provided identifier.
 	NotificationDate            Time   `json:"NotificationDate"`            // Required Date the status change was reported.
 	LicenseStatusChange         string `json:"LicenseStatusChange"`         // Optional 500 License status changes affecting the enrolled license.
 	DisciplineStatusChange      string `json:"DisciplineStatusChange"`      // Optional 500 Discipline/final orders status changes affecting the enrolled license.
