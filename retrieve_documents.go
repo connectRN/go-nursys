@@ -27,7 +27,7 @@ type RetrieveDocumentsRetrieveResponseMessage struct {
 // RetrieveDocumentResponse models a document returned from the  Retrieve Documents HTTP GET method.
 type RetrieveDocumentResponse struct {
 	SuccessFlag      bool   `json:"SuccessFlag"`      // Required True or False indicator if the document was successfully found
-	DocumentId       string `json:"DocumentId"`       // Required 50 Unique identifier for the document as supplied in the request.
+	DocumentID       string `json:"DocumentId"`       // Required 50 Unique identifier for the document as supplied in the request.
 	DocumentName     string `json:"DocumentName"`     // Required 50 Name of the document, including the extension.
 	DocumentContents string `json:"DocumentContents"` // Required Contents of the binary file.  (base64?? the spec doesn't say)
 }

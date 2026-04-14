@@ -121,7 +121,7 @@ type NurseLookupAction struct {
 // NurseLookupDocument is an element of NurseLookupDiscipline or NurseLookupRevisionReport or NurseLookupNotification
 type NurseLookupDocument struct {
 	ActionDate   Time   `json:"ActionDate"`   // Optional Date of the discipline/final order action associated with this board order document.
-	DocumentId   string `json:"DocumentId"`   // Required 50 Unique identifier for this board order document. This identifier can be used to retrieve the document using the Retrieve Document HTTP GET method described in section 3.6.
+	DocumentID   string `json:"DocumentId"`   // Required 50 Unique identifier for this board order document. This identifier can be used to retrieve the document using the Retrieve Document HTTP GET method described in section 3.6.
 	DocumentName string `json:"DocumentName"` // Required 50 Name of the board order document.
 }
 
